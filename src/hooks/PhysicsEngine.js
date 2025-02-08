@@ -13,7 +13,7 @@ const usePhysicsEngine = () => {
     const world = engine.world;
     engineRef.current = engine;
     worldRef.current = world;
-
+    engine.gravity.y = 0.0
     // Create ground
     groundRef.current = createGround();
     Matter.World.add(world, groundRef.current);
