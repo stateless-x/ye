@@ -1,17 +1,19 @@
 /* eslint-disable react/prop-types */
-import { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef } from "react";
 import ye from "../assets/ye.png"; // Ensure this is the correct path
 
-
 const ObjectComponent = ({ body }) => {
-  const [position, setPosition] = useState({
-    x: body.position.x,
-    y: body.position.y,
-  });
+  const imgRef = useRef(null); // Use ref to manipulate DOM directly
 
   useEffect(() => {
     const update = () => {
-      setPosition({ x: body.position.x, y: body.position.y });
+      if (imgRef.current) {
+        imgRef.current.style.left = `${body.position.x}px`;
+        imgRef.current.style.top = `${body.position.y}px`;
+        imgRef.current.style.transform = `rotate(${body.angle}rad)`;
+        imgRef.current.style.width = `${body.customSize}px`;
+        imgRef.current.style.height = `${body.customSize}px`;
+      };
       requestAnimationFrame(update);
     };
     update();
@@ -19,14 +21,11 @@ const ObjectComponent = ({ body }) => {
 
   return (
     <img
+      ref={imgRef}
       src={ye}
       alt="Bouncing Object"
       style={{
         position: "absolute",
-        left: `${position.x}px`,
-        top: `${position.y}px`,
-        width: "80px",
-        height: "80px",
         userSelect: "none",
         pointerEvents: "none",
       }}
