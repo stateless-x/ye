@@ -1,6 +1,7 @@
 {
-  "name": "animation-stuff",
-  "private": true,
+  "name": "ye",
+  "homepage": "http://stateless-x.github.io/ye",
+  "private": false,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
