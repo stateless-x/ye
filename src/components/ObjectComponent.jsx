@@ -1,9 +1,9 @@
 /* eslint-disable react/prop-types */
-import React, { useEffect, useRef } from "react";
-import ye from "../assets/ye.png"; // Ensure this is the correct path
+import { useEffect, useRef } from "react";
+import ye from "../assets/ye.png";
 
 const ObjectComponent = ({ body }) => {
-  const imgRef = useRef(null); // Use ref to manipulate DOM directly
+  const imgRef = useRef(null);
 
   useEffect(() => {
     const update = () => {
