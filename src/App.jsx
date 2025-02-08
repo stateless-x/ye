@@ -28,7 +28,7 @@ const App = () => {
     playMusic(audioRef);
     setTimeout(() => {
       spawnObjects(worldRef, bodiesRef, setShowObjects);
-    }, 3000);
+    }, 1500);
   };
 
   return (
